@@ -1,10 +1,12 @@
 import { OpenAI } from "openai";
 import User from "../models/User.js";
+// import e from "express";
 // import Account from "../models/Account.model.js";
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 export async function getStockOptions(req, res) {
+  console.log("openai api key: ",process.env.OPENAI_API_KEY);
   try {
     const { userId } = req.user
     const { accountId } = req.body;
@@ -69,6 +71,6 @@ Respond in a bullet list.
 
   } catch (err) {
     console.error("Error generating stock options", err);
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: err });
   }
 }

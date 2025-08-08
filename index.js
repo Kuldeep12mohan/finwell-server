@@ -6,19 +6,22 @@ import cors from "cors";
 import OcrRouter from "./Routes/OcrRouter.js";
 import stockRouter from "./Routes/stock.routes.js";
 import learnRouter from "./Routes/Dailylearn.routes.js";
+import aiRouter from "./routes/aiChat.routes.js";
+import chatBotRouter from "./routes/chatbot.routes.js"
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
-
 connectDB();
 
 app.use("/user", userRouter);
 app.use("/ocr", OcrRouter);
 app.use("/stocks", stockRouter);
 app.use("/daily-learn", learnRouter);
+app.use("/ai",aiRouter);
+app.use("/chatbot",chatBotRouter)
 // app.use('/chat',Chatrouter);
 
 app.get("/", (req, res) => {

@@ -4,7 +4,8 @@ export async function getAll(req,res){
     const { userId } = req.user;
     const { accountId } = req.body
     try{
-        console.log(req)
+        console.log("from getALl",userId)
+        // console.log(req)
         const userData = await User.findById(userId);
         // now filter the required account
         const accounts = userData.accounts;

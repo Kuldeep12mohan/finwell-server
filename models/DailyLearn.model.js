@@ -15,7 +15,7 @@ const DaySchema = new mongoose.Schema({
   },
   completed: { type: Boolean, default: false },
   userSummary: { type: String, default: "" },
-  score:{ type:Number,default:0 }
+  score:{ type:Number,default:1 }
 });
 
 const TrackSchema = new mongoose.Schema({
